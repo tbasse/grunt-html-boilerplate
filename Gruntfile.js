@@ -21,6 +21,7 @@ module.exports = function(grunt) {
     jshint: {
       options: {
         curly: true,
+        strict: true,
         eqeqeq: true,
         immed: true,
         latedef: true,
@@ -121,9 +122,15 @@ module.exports = function(grunt) {
           removeRedundantAttributes: true,
           collapseBooleanAttributes: true
         },
-        files: {
-          './dist/index.html': './src/index.html'
-        }
+        files: [
+          {
+            expand: true,
+            cwd: './src/',
+            src: ['**/*.html'],
+            dest: './dist/',
+            ext: '.html'
+          }
+        ]
       }
     },
 
